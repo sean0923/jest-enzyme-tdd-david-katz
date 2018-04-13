@@ -1,6 +1,7 @@
 import { combineReducers } from 'redux';
 
-import { RDX_SETTING } from '../constants/reducerNames';
+import balanceReducer from './balanceReducer';
 
 export default combineReducers({
+  balance: balanceReducer,
 });
