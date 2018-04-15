@@ -1,2 +1,1 @@
-export const UPDATE_BANK_NAME = 'UPDATE_BANK_NAME';
-export const UPDATE_THEME = 'UPDATE_THEME';
+export const SET_BALANCE = 'SET_BALANCE';
