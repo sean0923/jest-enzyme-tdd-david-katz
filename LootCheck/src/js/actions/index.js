@@ -1,13 +1,22 @@
-import { UPDATE_BANK_NAME, UPDATE_THEME } from './types';
+import * as types from './types';
 
-export const updateBankName = bankName => ({
-  type: UPDATE_BANK_NAME,
-  payload: bankName,
-});
-
-export const updateTheme = theme => {
+export const setBalance = balance => {
   return {
-    type: UPDATE_THEME,
-    payload: theme,
+    type: types.SET_BALANCE,
+    balance,
+  };
+};
+
+export const addMoney = money => {
+  return {
+    type: types.ADD_MONEY,
+    money,
+  };
+};
+
+export const subtractMoney = money => {
+  return {
+    type: types.SUBTRACT_MONEY,
+    money,
   };
 };

@@ -13,7 +13,7 @@ describe('App', () => {
   });
 
   test('Check Wallet exists', () => {
-    console.log('app.debug: ', app.debug());
+    // console.log('app.debug: ', app.debug());
     expect(app.find('Connect(Wallet)').exists()).toBe(true);
   })
 

@@ -1,5 +1,5 @@
 import balanceReducer from './balanceReducer';
-import * as actions from '../actions/balance';
+import * as actions from '../actions/index';
 
 describe('balance reducer test', () => {
   const balance = 100;
