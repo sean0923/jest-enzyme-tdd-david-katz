@@ -22,5 +22,20 @@ describe('Wallet Component', () => {
 
   test('check input exsit', () => {
     expect(wallet.find(Input).exists()).toBe(true);
-  })
+  });
+
+  test('local "userInput" should exist and value should be empty str', () => {
+    expect(wallet.state()).toEqual({ userInput: '' });
+  });
+
+  describe('when user type into input', () => {
+    const targetAmount = 5000;
+    beforeEach(() => {
+      wallet.find(Input).simulate('change', { target: { value: targetAmount } });
+    });
+
+    test('"userInput" should change val when user type', () => {
+      expect(wallet.state().userInput).toEqual(targetAmount);
+    });
+  });
 });

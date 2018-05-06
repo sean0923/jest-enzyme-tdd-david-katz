@@ -22,7 +22,11 @@ export class Wallet extends Component {
       <div>
         <div className="wallet">{this.props.balance}</div>
         <br />
-        <Input value={this.state.userInput} onChange={e => this.setState({ userInput: e.target.value })} />
+        <Input
+          type="text"
+          value={this.state.userInput}
+          onChange={e => this.setState({ userInput: e.target.value })}
+        />
       </div>
     );
   }
