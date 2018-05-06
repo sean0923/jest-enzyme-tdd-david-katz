@@ -1,5 +1,6 @@
 import balanceReducer from './balanceReducer';
 import * as actions from '../actions/index';
+import * as types from '../actions/types';
 
 describe('balance reducer test', () => {
   const balance = 100;
@@ -7,6 +8,16 @@ describe('balance reducer test', () => {
 
   test('reducer returning correct balance', () => {
     expect(balanceReducer(undefined, actionCallback())).toEqual(balance);
+  });
+
+  test('setBalance action will return proper obj', () => {
+    const balance = 100;
+    const properObj = {
+      type: types.SET_BALANCE,
+      balance,
+    };
+
+    expect(actions.setBalance(balance)).toEqual(properObj);
   });
 
   test('Able to add money', () => {
