@@ -4,12 +4,12 @@ import React from 'react';
 import { Wallet } from './Wallet'; // kind of weird has to be this way ...
 // import Wallet from './Wallet';
 
-import { Input } from './Wallet';
-
-import * as Styled from './Wallet.styles';
+import { Input, BtnAddMoney } from './Wallet';
 
 describe('Wallet Component', () => {
-  const props = { balance: 300 };
+  const mockDeposit = jest.fn();
+  const balance = 300;
+  const props = { balance, addMoney: mockDeposit };
   const wallet = shallow(<Wallet {...props} />);
 
   test('render properly', () => {
@@ -25,17 +25,26 @@ describe('Wallet Component', () => {
   });
 
   test('local "userInput" should exist and value should be empty str', () => {
-    expect(wallet.state()).toEqual({ userInput: '' });
+    expect(wallet.state().userInput).toEqual('');
   });
 
   describe('when user type into input', () => {
-    const targetAmount = 5000;
     beforeEach(() => {
-      wallet.find(Input).simulate('change', { target: { value: targetAmount } });
+      wallet.find(Input).simulate('change', { target: { value: balance } });
     });
 
     test('"userInput" should change val when user type', () => {
-      expect(wallet.state().userInput).toEqual(targetAmount);
+      expect(wallet.state().userInput).toEqual(balance);
+    });
+  });
+
+  describe('when add money btn is clicked', () => {
+    beforeEach(() => {
+      wallet.find(BtnAddMoney).simulate('click');
+    });
+
+    test('add money actions should be called with balacne', () => {
+      expect(mockDeposit).toHaveBeenCalledWith(balance);
     });
   });
 });
