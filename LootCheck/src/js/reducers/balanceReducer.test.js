@@ -8,4 +8,20 @@ describe('balance reducer test', () => {
   test('reducer returning correct balance', () => {
     expect(balanceReducer(undefined, actionCallback())).toEqual(balance);
   });
+
+  test('Able to add money', () => {
+    const addtionalMoney = 100;
+    const initMoney = 10;
+    const action = actions.addMoney(addtionalMoney);
+
+    expect(balanceReducer(initMoney, action)).toEqual(initMoney + addtionalMoney);
+  });
+
+  test('Able to substact money', () => {
+    const addtionalMoney = 100;
+    const initMoney = 10;
+    const action = actions.subtractMoney(addtionalMoney);
+
+    expect(balanceReducer(initMoney, action)).toEqual(initMoney - addtionalMoney);
+  });
 });
