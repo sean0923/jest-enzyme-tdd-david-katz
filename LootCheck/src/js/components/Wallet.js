@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import styled from 'styled-components';
 import * as Styled from './Wallet.styles';
-import { addMoney, subtractMoney } from '../actions/index';
+import { addMoney, subtractMoney, fetchBitcoinPrice } from '../actions/index';
 
 export const Input = styled.input`
   &:focus {
@@ -30,6 +30,7 @@ export class Wallet extends Component {
   }
 
   render() {
+    // this.props.fetchBitcoinPrice();
     return (
       <div>
         <div className="wallet">{this.props.balance}</div>
@@ -66,4 +67,4 @@ const mapStateToProps = state => {
   };
 };
 
-export default connect(mapStateToProps, { addMoney, subtractMoney })(Wallet);
+export default connect(mapStateToProps, { addMoney, subtractMoney, fetchBitcoinPrice })(Wallet);

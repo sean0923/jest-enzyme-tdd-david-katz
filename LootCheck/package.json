@@ -13,6 +13,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "axios": "^0.18.0",
     "babel-core": "^6.26.0",
     "babel-loader": "^7.1.4",
     "babel-plugin-transform-object-rest-spread": "^6.26.0",
@@ -57,6 +58,7 @@
     "eslint-plugin-react": "^7.7.0",
     "fetch-mock": "^6.3.0",
     "jest": "^22.4.3",
+    "jest-mock-axios": "^2.1.11",
     "react-test-renderer": "^16.3.1",
     "redux-mock-store": "^1.5.1"
   },
