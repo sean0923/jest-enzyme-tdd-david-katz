@@ -7,10 +7,16 @@ export class BitcoinBalance extends Component {
     this.props.fetchBitcoinPrice();
   }
 
+  computeBalanceInBitcoin() {
+    const { bitcoin, balance } = this.props;
+    if (Object.keys(bitcoin).length === 0) return null;
+    return balance / parseInt(bitcoin.bpi.USD.rate.replace(',', ''), 10);
+  }
+
   render() {
     return (
       <div>
-        <h3>Bitcoin balance</h3>
+        <h3>Bitcoin balance: {this.computeBalanceInBitcoin()}</h3>
       </div>
     );
   }
@@ -18,6 +24,7 @@ export class BitcoinBalance extends Component {
 
 const mapStateToProos = state => {
   return {
+    balance: state.balance,
     bitcoin: state.bitcoin,
   };
 };
