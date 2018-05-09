@@ -17,6 +17,10 @@ describe('App', () => {
     expect(app.find('Connect(Wallet)').exists()).toBe(true);
   })
 
+  test('link to coin desk exist', () => {
+    expect(app.find('a').props().href).toEqual('https://www.coindesk.com/price/');
+  })
+
 
 
 });

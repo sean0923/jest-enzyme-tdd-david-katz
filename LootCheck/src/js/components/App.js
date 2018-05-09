@@ -14,6 +14,7 @@ export default class App extends Component {
         <Wallet />
         <hr />
         <BitcoinBalance />
+        <a href="https://www.coindesk.com/price/">coin desk</a>
       </div>
     );
   }
